@@ -49,5 +49,21 @@ praise("Holy ${creating}, Batman - this code is
 
 ```
 
-use cowsay::say() to make a character say something to you
+use `cowsay::say()` to make a character say something to you
+
+use `usethis::use_git()` or `usethis::use_github()` to create a repo from an existing rproj
+
+## use paletteer to access thousands of color palettes
+
+```{r}
+storms %>% 
+  group_by(name) %>% 
+  summarize(min_pressure = min(pressure, na.rm = TRUE)) %>% 
+  # find the minimum and how many observations to find. here we are finding the 10 lowest pressures
+  slice_min(n = 10, min_pressure) %>% 
+  ggplot(aes(x = min_pressure, y = name)) +
+  geom_col(aes(fill = name)) +
+  scale_fill_paletteer_d("palettetown::miltank")
+  
+```
 
